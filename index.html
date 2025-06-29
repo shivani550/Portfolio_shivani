@@ -10,14 +10,30 @@
 
   <!-- Full-screen Background Image -->
   <img src="bgimage.jpeg" class="full-bg" />
+  
+  
+
   <div class="intro">
-    <h1>SHIVANI JHA</h1></div>
+    <h1>SHIVANI JHA</h1>
+   
+  </div>
+  <!--Music-->
+<audio id="bg-music" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵 Toggle Music</button>
+
+
+
   <!-- Buttons Section -->
   <div class="button-container" id="buttonContainer">
     <button class="nav-btn" data-section="about">About</button>
     <button class="nav-btn" data-section="skills">Skills</button>
     <button class="nav-btn" data-section="projects">Projects</button>
     <button class="nav-btn" data-section="contact">Contact</button>
+     <button class="nav-btn" data-section="Livinggallery">Livinggallery</button>
+
   </div>
 
   <!-- Section Content -->
@@ -64,7 +80,22 @@ I’m Shivani Jha, a 20-year-old second-year Mechanical Engineering student at I
     <p>Email: shivanijhavats@gmail.com<br>
     LinkedIn: <a href="https://www.linkedin.com/in/shivanijhavats742/">shivani</a></p>
   </div>
+  <div class="content-section" id="Livinggallery">
+    <button class="close-btn">✖</button>
+    <h2>Living-Gallery</h2>
+
+  </div>
 
   <script src="script.js"></script>
+  <script>
+  function toggleMusic() {
+    const music = document.getElementById("bg-music");
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
 </body>
 </html>

@@ -27,3 +27,6 @@ document.querySelectorAll('.close-btn').forEach(btn => {
     document.body.style.backgroundColor = '';
   });
 });
+
+
+
