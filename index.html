@@ -3,99 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivani Jha | Interactive Portfolio</title>
+  <title>Shivani Jha | TechWorks Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .intro {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      text-align: center;
+      z-index: 2;
+      color: #fff;
+      text-shadow: 0 0 10px #f1c88f;
+    }
+
+    .full-bg {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.2;
+      filter: brightness(0.7);
+    }
+
+    .button-container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-btn, .music-btn {
+      background: linear-gradient(145deg, #d89e4c, #f1c88f);
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #f1c88f;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .nav-btn:hover, .music-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .content-section {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      width: 90%;
+      max-width: 650px;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      display: none;
+      z-index: 3;
+      color: #333;
+      animation: fadeInScale 0.4s ease-out forwards;
+    }
+
+    .content-section h2 {
+      margin-top: 0;
+      color: #d07a00;
+    }
+
+    .content-section ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #d07a00;
+      text-decoration: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      color: #d8510d;
+      font-size: 1.5rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Full-screen Background Image -->
-  <img src="bgimage.jpeg" class="full-bg" />
-  
-  
+  <img src="bgimage.jpeg" class="full-bg" alt="background" />
 
   <div class="intro">
     <h1>SHIVANI JHA</h1>
-   
+    <p>Web Developer | Designer | Storyteller | Painter</p>
   </div>
-  <!--Music-->
-<audio id="bg-music" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵 Toggle Music</button>
 
+  <audio id="bg-music" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button class="music-btn" onclick="toggleMusic()">🎵 Toggle Music</button>
 
-
-  <!-- Buttons Section -->
   <div class="button-container" id="buttonContainer">
     <button class="nav-btn" data-section="about">About</button>
     <button class="nav-btn" data-section="skills">Skills</button>
     <button class="nav-btn" data-section="projects">Projects</button>
+    <button class="nav-btn" data-section="experience">Experience</button>
     <button class="nav-btn" data-section="contact">Contact</button>
-     <button class="nav-btn" data-section="Livinggallery">Livinggallery</button>
-
+    <button class="nav-btn" data-section="Livinggallery">Living Gallery</button>
   </div>
 
-  <!-- Section Content -->
   <div class="content-section" id="about">
     <button class="close-btn">✖</button>
-   
     <h2>About Me</h2>
-   <p>Hello there! 🙋🏻‍♀️
-I’m Shivani Jha, a 20-year-old second-year Mechanical Engineering student at IIGTTUW with a current CGPA of 8.34.</p>
-<p>Although my branch is Mechanical, I’ve fallen in love with coding, web development, and DSA—and I’ve been actively building, learning, and teaching ever since. I’ve worked on full-stack projects like Coastal Compass, ParentingWise, and BaidehiJha, all of which reflect my passion for blending design with tech.</p>
- <p>I also love solving DSA problems, exploring patterns, and sharpening my logic one problem at a time. I’ve explored C++, JavaScript, MongoDB, React, Node.js, and more—and I believe in learning by building.</p> 
-<p><ul>
-    <h3>💡 A few things about me:</h3>
-    <li>Created real-world web apps and participated in innovation challenges like Smart India Hackathon (SIH)</li>
-     <li>Taught Math and Science to 9th–10th graders—because learning should be affordable</li>
-      <li> Passionate about public speaking, creative storytelling, and painting</li>
-      <li>I love to learn anything and everything under the sun 🌞</li>
-      <br>
+    <p>Hello there! 🙋🏻‍♀️ I’m Shivani Jha, a second-year Mechanical Engineering student at IGDTUW with a CGPA of 8.35. Despite my branch, I’ve embraced coding, design, and development. I love blending tech and creativity to bring impactful ideas to life.</p>
+    <ul>
+      <li>SIH 2024 Finalist | Full-stack Dev at Coastal Compass</li>
+      <li>Built ParentingWise, BaidehiJha, and more</li>
+      <li>Taught Math & Science to 9th–10th graders</li>
+      <li>Lover of public speaking, painting, and storytelling</li>
     </ul>
-</p>
-<p>I believe skills > labels, and I’m on a mission to grow, build, and share knowledge with others like me. Let’s learn, create, and thrive—together. ❤️</p>
-</div>
+  </div>
 
   <div class="content-section" id="skills">
     <button class="close-btn">✖</button>
     <h2>Skills</h2>
-    <p>React, Node.js, MongoDB, C++, HTML/CSS/JS, Git, UI/UX Design</p>
+    <p>React, Node.js, MongoDB, C++, HTML/CSS/JS, Git, UI/UX Design, Public Speaking, Storyboarding</p>
   </div>
 
   <div class="content-section" id="projects">
-  <button class="close-btn">✖</button>
-  <h2>Projects</h2>
-  <ul>
-    <li>ParentingWise — <a href="parenting-wise.vercel.app" target="_blank">Click here</a></li>
-    <li>BaidehiJha — <a href="https://shivani550.github.io/BaidehiJha/" target="_blank">Click here</a></li>
-    <li>My Portfolio — <a href="shivani550.github.io/Portfolio_shivani/" target="_blank">Click here</a></li>
-  </ul>
-</div>
+    <button class="close-btn">✖</button>
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>ParentingWise</strong> — <a href="https://parenting-wise.vercel.app" target="_blank">Visit</a></li>
+      <li><strong>BaidehiJha</strong> — <a href="https://shivani550.github.io/BaidehiJha/" target="_blank">Visit</a></li>
+      <li><strong>Portfolio</strong> — <a href="https://shivani550.github.io/Portfolio_shivani/" target="_blank">Visit</a></li>
+    </ul>
+  </div>
 
+  <div class="content-section" id="experience">
+    <button class="close-btn">✖</button>
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>DevRel Intern</strong> — The Boring Education</li>
+      <li><strong>Creative & Design Head</strong> — Aarohan Literary Fest</li>
+      <li><strong>Team Lead</strong> — IIT Delhi Alchemy Winner (Road Painting)</li>
+    </ul>
+  </div>
 
   <div class="content-section" id="contact">
     <button class="close-btn">✖</button>
     <h2>Contact</h2>
-    <p>Email: shivanijhavats@gmail.com<br>
-    LinkedIn: <a href="https://www.linkedin.com/in/shivanijhavats742/">shivani</a></p>
+    <p>Email: shivani550@gmail.com<br>
+    LinkedIn: <a href="https://www.linkedin.com/in/shivani-jha-051856193" target="_blank">shivani-jha</a></p>
   </div>
+
   <div class="content-section" id="Livinggallery">
     <button class="close-btn">✖</button>
-    <h2>Living-Gallery</h2>
-
+    <h2><a href="living.html" target="_blank">Enter Living Gallery →</a></h2>
   </div>
 
-  <script src="script.js"></script>
   <script>
-  function toggleMusic() {
-    const music = document.getElementById("bg-music");
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
+    const buttons = document.querySelectorAll(".nav-btn");
+    const sections = document.querySelectorAll(".content-section");
+    const closeButtons = document.querySelectorAll(".close-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sectionId = btn.getAttribute("data-section");
+        sections.forEach((section) => {
+          section.style.display = "none";
+        });
+        document.getElementById(sectionId).style.display = "block";
+      });
+    });
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.style.display = "none";
+      });
+    });
+
+    function toggleMusic() {
+      const music = document.getElementById("bg-music");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
     }
-  }
-</script>
+  </script>
 </body>
 </html>

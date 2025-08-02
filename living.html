@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Living Gallery</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #0e0e0e, #2b2b2b);
+      color: #fff;
+    }
+
+    .header {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      color: #f1c88f;
+      font-size: 2rem;
+      text-shadow: 0 0 10px #f1c88f;
+    }
+
+    .gallery-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .track {
+      display: flex;
+      gap: 40px;
+      animation: scrollLoop 30s linear infinite;
+    }
+
+    .track img {
+      width: 280px;
+      height: 280px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid #f1c88f;
+      box-shadow: 0 0 15px #f1c88f88;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .track img:hover {
+      transform: scale(1.1);
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      z-index: 100;
+      width: 80vw;
+      max-width: 800px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+      animation: pop 0.4s ease forwards;
+    }
+
+    .popup img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      z-index: 99;
+      backdrop-filter: blur(4px);
+    }
+
+    @keyframes scrollLoop {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes pop {
+      from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">CLICK TO EXPERIENCE THE MAGIC ✨</div>
+
+  <div class="gallery-container">
+    <div class="track" id="track">
+      <!-- Replace with your actual image paths -->
+      <img src="i2.jpeg" alt="Art 1" />
+      <img src="i4.jpeg" alt="Art 2" />
+      <img src="i5.jpeg" alt="Art 3" />
+      <img src="i6.jpeg" alt="Art 4" />
+      <img src="i7.jpeg" alt="Art 5" />
+      <img src="i8.jpeg" alt="Art 6" />
+      <img src="i2.jpeg" alt="Art 7" />
+      <img src="i4.jpeg" alt="Art 8" />
+    </div>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll(".track img");
+
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        const popup = document.createElement("div");
+        popup.classList.add("popup");
+
+        const overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+
+        const popupImage = document.createElement("img");
+        popupImage.src = img.src;
+        popup.appendChild(popupImage);
+
+        overlay.addEventListener("click", () => {
+          popup.remove();
+          overlay.remove();
+        });
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(popup);
+      });
+    });
+  </script>
+</body>
+</html>
